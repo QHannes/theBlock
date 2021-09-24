@@ -7,7 +7,7 @@ Hi,
 
 
 
-Ich bin Hannes und ich bin beruflich unter anderem im Volleyball unterwegs. 
+Ich bin ein Hannes. 
 Als Physiotherapeut und Athletiktrainer arbeite ich seit mehreren 
 Jahren in der ersten Bundesliga der Männer und Frauen, sowie für den norwegischen Volleyballverband
 
