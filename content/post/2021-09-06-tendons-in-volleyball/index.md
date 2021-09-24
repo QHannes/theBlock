@@ -1,7 +1,7 @@
 ---
 title: Das "Warum" und das "Was"
 author: Johannes Quandel
-date: '2021-09-11'
+date: '2021-09-12'
 slug: tendons-in-volleyball
 categories: []
 
