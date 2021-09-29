@@ -1,6 +1,6 @@
 baseurl: /
 languageCode: en-us
-title: Physical Training in Volleyball and Sports Trivia
+title: Information around physical training in volleyball
 theme: hugo-lithium
 googleAnalytics: ''
 disqusShortname: ''
@@ -30,9 +30,9 @@ params:
   highlightjsVersion: 9.12.0
   logo:
     alt: Logo
-    height: 50
+    height: 70
     url: Skaterbild.jpg
-    width: 50
+    width: 70
 markup:
   defaultMarkdownHandler: goldmark
   goldmark:
