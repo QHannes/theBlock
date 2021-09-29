@@ -3,7 +3,7 @@ date: "2016-05-05T21:48:51-07:00"
 title: Das bin ich
 ---
 
-<img src="/./about_files/portrait.JPG" alt="" width="200px" height="200px"/>
+![](/./about_files/portrait.JPG)
 
 Hi,
 
