@@ -20,7 +20,7 @@ Vor weniger als 100 Jahren (ca. 1930) ähnelten sich Kugelstoßer und Hochspring
 
 Doch macht euch selbst ein Bild: in der Abbildung unten findet ihr 21 populäre Sportarten (Turnen, Volleyball, Basketball usw.), sowie das durchschnittliche Gewicht und die durchschnittliche Körpergröße (aufgetragen auf X und Y Achse). Am Zeitstrahl könnt ihr selbst herumspielen und schauen, wohin sich die Körper der verschiedenen Sportarten verändern. Die Daten beziehen sich auf männliche Sportler, jedoch gibt es keinen Grund anzunehmen, dass es bei Frauen zu anderen Veränderungen kommt. Gestoßen bin ich auf eine ähnliche Abbildung in einem "TED-Talk" des Journalisten David Epstein.
 
-```{r echo = FALSE,message=FALSE, warning=FALSE, fig.cap = 'Big Bang of Body Types (nach einem TED-Talk von David Epstein) - wenn ich an alle Daten komme, reiche ich gern die Namen der einzelnen Sportarten nach'}
+```{r echo = FALSE,message=FALSE, warning=FALSE, fig.cap = 'Big Bang of Body Types (nach einem TED-Talk von David Epstein) - wenn ich an alle Daten komme, reiche ich gern die Namen der einzelnen Sportarten nach. Bei Handys am besten den Bildschirm quer halten; durch Doppelklick wird herausgezoomt (falls ihr euch verdrückt habt)'}
 library(tidyverse)
 library(plotly)
 
