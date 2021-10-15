@@ -1,0 +1,66 @@
+---
+title: Big Bang of Body Types
+author: Johannes Quandel
+date: '2021-10-15'
+slug: big-bang-of-body-types
+categories: []
+tags: []
+bibliography: references.bib
+---
+
+Neben vielen anderen Sportarten waren dieses Jahr wieder die Olympischen Spiele und euch ist sicher nicht zum ersten Mal aufgefallen, dass sich die Körper der verschiedenen Sportler:innen ganz schön unterscheiden. Beispielhaft dafür können die V-förmigen Oberkörper der Schwimmer, lange dünne Hochspringer und vor Kraft nur so strotzende Athleten aller möglichen Wurf- und Stoßdisziplinen. Aber ist das wirklich so und, falls ja, war das schon immer so?
+
+Circa 1490 hat Galileo den vitruvianischen Mann gemalt, bei dem "4 Finger einen Palm (handbreit), 4 Palm eine Elle, 4 Ellen die Gesamtgröße eines Menschen und dieselben 4 Ellen einen Klafter (Armspannweite)" ergeben. Diese ungefähren Körperproportionen gelten für uns "Durchschnittsmenschen" nach wie vor und noch zu Beginn des 20. Jahrhunderts verstanden Anthropologen diesen Durchschnittskörper als den für den Sport am geeignetesten. Ganz richtig gelesen, man dachte tatsächlich, dass es für den Sport am Besten sei - unabhängig der ausgeübten Sportart. Damit es etwas anschaulicher ist, könnt ihr das gerne zuhause nachmessen.
+
+Ohne lange nachzudenken sieht man aber bei fast jedem Sportwettkampf, dass ca. 100 Jahre später diese Experten eines Besseren belehrt würden und genau darum soll es hier gehen. Viele Sportler steckt man schon im Trainingsanzug in die "richtige Schublade".
+
+Vor weniger als 100 Jahren (ca. 1930) ähnelten sich Kugelstoßer und Hochspringer sowohl in ihrer Körpergröße als auch in ihrem Körpergewicht. Heutzutage sind Kugelstoßer im durchschnitt 7 zentimeter größer und über 50 Kilogramm schwerer als ihre hochspringenden Kollegen. Als Beispiel könnten der beste Deutsche Kugelstoßer David Storl (1.98m, 120kg) und Hochspringer Mateusz Przybylko (1.95m, 70kg) dienen. Ähnliche Veränderungen finden sich in vielen anderen Sportarten, in denen Athleten beispielsweise deutlich größer aber kaum schwerer (Beispiel: Volleyball), oder deutlich kleiner wurden (Beispiel: Turnen).
+
+Ähnliche Beobachtungen machten die beiden Wissenschaftler Kevin Norton und Tim Olds, die aufgrund der immer unterschiedlicher werdenden Körperproportionen den Begriff "Big Bang of Body Types" (Urknall der Körperproportionen) prägten. Körpergewicht und Körpergröße verschiedener Sportler schienen wie Galaxien auseinanderzudriften. [@norton2001]
+
+Doch macht euch selbst ein Bild: in der Abbildung unten findet ihr 21 populäre Sportarten (Turnen, Volleyball, Basketball usw.), sowie das durchschnittliche Gewicht und die durchschnittliche Körpergröße (aufgetragen auf X und Y Achse). Am Zeitstrahl könnt ihr selbst herumspielen und schauen, wohin sich die Körper der verschiedenen Sportarten verändern. Die Daten beziehen sich auf männliche Sportler, jedoch gibt es keinen Grund anzunehmen, dass es bei Frauen zu anderen Veränderungen kommt. Gestoßen bin ich auf eine ähnliche Abbildung in einem "TED-Talk" von dem Journalisten David Epstein.
+
+```{r echo = FALSE,message=FALSE, warning=FALSE, fig.cap = 'Big Bang of Body Types (nach einem TED-Talk von David Epstein) - wenn ich an alle Daten komme, reiche ich gern die Namen der einzelnen Sportarten nach'}
+library(tidyverse)
+library(plotly)
+
+bigbang <- read.csv2("C:/Users/johan/OneDrive/Desktop/Volleyball-Blog R/theBlock/content/post/2021-10-15-big-bang-of-body-types/bigbang.csv")
+
+bigbang$Sport <- as.character(bigbang$Sport)
+bigbang$Weight <- round(bigbang$Weight, digits = 2)
+bigbang$Height <- round(bigbang$Height, digits = 2)
+
+gg <- ggplot(bigbang, aes(Weight, Height, color = Sport, frame = Year)) +
+  geom_point(aes(size=2))+
+  theme_minimal()+
+  theme(legend.position = "none")+
+  xlab("Gewicht (kg)")+
+  ylab("Körpergröße (cm)")+
+  ggtitle("Größe und Gewicht 21 populärer Sportarten 1930 und 2000")
+ggplotly(gg) %>% 
+  highlight("plotly_hover")
+```
+
+Die Gründe dafür sind sicherlich vielfältig, aber einen Teil will ich nennen. Das gesteigerte Interesse durch mehr Fernsehübertragungen, mehr Sponsoren und besseres Scouting aber auch die gestiegenen Gehälter in großen Sportligen (Beispiel: das Durchschnittseinkommen von NHL-Spielern, Eishockey in den USA, ist in nur 20 Jahren (1980-2000) vom 10-fachen auf das 50-fache Durchschnittseinkommen in den USA gestiegen) oder Preisgelder einzelner Sportveranstaltungen (Beispiel: das letzte große Beachvolleyballturnier des Jahres, die World Tour Finals auf Sardinien, hat 800.000 Dollar Preisgeld an die Teams ausgeschüttet, von denen die Siegerteams aus Deutschland (Borger/Sude) und Norwegen (Mol/Sorum) jeweils 150.000 abbekommen haben.
+
+Die nordamerikanische Basketballliga NBA gilt als die beste der Welt. Hohe Gehälter und weltweites Scouting lassen auch hier die aktiven Spieler alles andere als durchschnittlich aussehen. Von 1950-2010 ist die durchschnittliche Körpergröße von 1.83m auf 2.01m angewachsen. Mittlerweile sind ca. 10% aller aktiven NBA-Spieler 2.13m oder größer, jedoch nur 2 von knapp 400 Spielern kleiner als 1.75m!! (www.nba.com/stats) Wenn ihr jetzt zufällig in den USA seid und auf der Straße einen Mann zwischen 20 und 40 Jahren mit einer Körpergröße von mindestens 2.13 trefft, dann besteht eine 20% Chance, dass dieser Mann JETZT GERADE in ein aktiver NBA Spieler ist. So selten ist es, so groß zu sein - das scheint bei Basketball aber ordentlich zu helfen.
+
+Ähnlich wie die Körpergröße, ist auch eine große Armspannweite in dieser Sportart sehr nützlich und in der NBA weit verbreitet. Wo bei "uns" (zum Beispiel bei mir) die Spannweite der Körpergröße ähnelt, so ist sie bei NBA-Spielern im Durchschnitt 6-7% größer. Die Superstars Giannis Antetekounmpo (Körpergröße 2.11m, Spannweite 2.26m) oder Kevin Durant (2.06m, 2.25m) wirken so noch größer als sie eh schon sind. Was große Spieler noch größer erscheinen lässt, lässt kleine Spieler nicht so klein aussehen. Einer der beiden "Zwerge" der Liga, Isiah Thomas, hat bei nur 1.75m Körpergröße eine Spannweite von knapp 1.90m.
+
+Es gibt im Sport aber auch andere Tendenzen. turnerinnen sind heutzutage durchschnittlich 12cm kleiner als Athleten des gleichen Sports vor dreißig Jahren (1,61m → 1,49m). Küren mit immer mehr Salti, Drehungen und Schrauben sind für (normal)große Menschen ungleich schwieriger. Als bestes Beispiel dient auch hier der Superstar der Szene aus den USA, Simone Biles mit nur 1.42cm Körpergröße (14x Gold, 3x Silber, 2x Bronze bei Weltmeisterschaften und Olympischen Spielen).
+
+Neben der Körpergröße gibt es aber auch andere interessante Fakten. Gewichtheber haben etwas kürzere Arme, was nützlich ist, wenn man ein schweres Gewicht mit ausgestreckten Armen über den Kopf stemmen soll.
+
+Es geht aber noch verrückter!
+
+Profiwasserballer haben anders als "wir" durchschnittlich längere Unter- als Oberarme, was vorteilhaft ist, wenn sich der Großteil des Körpers ständig unter Wasser befindet und es trotzdem auf einen kraftvollen Wurf ankommt. Apropos Wasser: beim Schwimmen sind übrigens lange Arme, große Hände und Füße von Vorteil. Das Verhältnis von Oberkörper und Beinlänge ist allerdings fast immer deutlich anders als in den meisten anderen Sportarten. Michael Phelps, der erfolgreichste Schwimmer allerZeiten, kauft bei einer Körpergröße von 1.93m Hosen mit der Saumlänge 32. Damit hat er etwas gemeinsam mit dem Weltrekordler auf den 1500m auf der Tartan-Bahn. Hicham El Guerrouj (1.75m) hat wie fast jeder Läufer deutlich längere Beine und bestellt aber ebenfalls Hosen mit der gleichen Saumlänge - den 20cm Größenunterschied zum Trotz.
+
+Wie Hicham El Guerrouj zeichnen ein kleiner Oberkörper, ein schmales Becken und dünne Waden fast ausnahmslos die Topläufer der Mittel- und Langstrecke aus. [@Wilber2012] Eine Besonderheit gilt noch den Sprintern, die neben einem deutlich muskulöseren Körperbau fast ausnahmslos kleine Füße haben (Beispiel: Tyson Gay ist 1.80m groß und hat Schuhgröße 41). Die Kraftübertragung der Wadenmuskulatur über große Füße auf die Bahn ist insbesondere Beim Start viel zu schwer und ineffizient und wahrscheinlich mitverantwortlich dafür, dass der weltbeste Sprinter aller Zeiten, Usain Bolt (Schuhgröße 47) nie der Schnellste aus den Blöcken war.
+
+Sicherlich sorgt Wasserball nicht dafür, dass die Unterarme länger werden und Basketball nicht dafür, dass man auf magische Weise nochmal 15cm wächst. Bei einer so hohen Leistungsdichte in den meisten Sportarten, unterstützt durch extensives Scouting, konzentrieren sich eben die Athleten mit den für ihren Sport am geeignetesten Körpern. Das sorgt dafür, dass die Körper von Leistungssportlern ihren Sportkollegen mehr ähneln als ihren eigenen Geschwistern. Wo sich im Breitensport jeder den Sport seiner/ihrer Wahl sucht, scheinen im (Hoch-)Leistungssport andere Gesetze zu herrschen.
+
+Für mich mit normal langen Beinen und kräftigen Waden heißt das allerdings, dass ich niemals ein richtig guter Langstreckenläufer werde und auch um hochklassig Volleyball spielen zu können, war meine durchschnittliche Körpergröße ungeeignet (gepaart mit durchschnittlichen Defiziten in vielen anderen Bereichen ;) )
+
+Was ich allerdings richtig gut kann, ist nach einer Runde auf dem Rennrad, im Fitnessstudio oder auf dem Volleyballfeld die richtig guten Sportler live oder im Stream anzuschauen. Da wundere ich mich jedes Mal, wie sowas möglich ist - sicherlich hilft neben leiden, leiden und leiden auch manchmal auf der "geeigete Körper".
+
+Sicherlich gibt es noch viel mehr Besonderheiten dieser Art. Dieser kleine Kommentar soll lediglich die Fantasie anregen und zum "genauer Hingucken" animieren und erhebt sicherlich nicht den Anspruch auf Vollständigkeit.
